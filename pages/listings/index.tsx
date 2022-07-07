@@ -1,6 +1,7 @@
-import Layout from "../components/Layout";
-import ListingCard from "../components/ListingCard";
-import { getAllListings } from "./api/listings";
+import Layout from "../../components/Layout";
+import ListingCard from "../../components/ListingCard";
+import { IListing } from "../../models/Listing";
+import { getAllListings } from "../api/listings";
 
 const IndexPage = ({ listings }) => {
   return (
@@ -29,11 +30,13 @@ const IndexPage = ({ listings }) => {
 export default IndexPage;
 
 export async function getServerSideProps() {
-  const listings = await getAllListings();
+  const listings: IListing[] = JSON.parse(
+    JSON.stringify(await getAllListings())
+  );
 
   return {
     props: {
-      listings: JSON.parse(JSON.stringify(listings)),
+      listings: listings,
     },
   };
 }

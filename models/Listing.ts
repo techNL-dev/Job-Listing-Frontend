@@ -7,6 +7,7 @@ export interface IListing extends Document {
   "posting date": string;
   description: string[];
   company: string;
+  "apply link": string
 }
 
 const ListingSchema: Schema = new Schema({
@@ -16,6 +17,7 @@ const ListingSchema: Schema = new Schema({
     "posting date": {type: String, required: true},
     description: {type: Array<string>, required: true},
     company: {type: String, required: true},
+    "apply link": {type: String, required: true},
 }, {collection: "Listings"})
 
 export default models.Listing || model<IListing>("Listing", ListingSchema);
