@@ -1,25 +1,21 @@
 import Layout from "../components/Layout";
-import ListingCard from "../components/ListingCard";
-import { getAllListings } from "./api/listings";
 
-const IndexPage = ({ listings }) => {
+const IndexPage = () => {
   return (
-    <Layout title="Listings">
+    <Layout title="Home">
       <div
         className="
           flex
           flex-col
-          justify-start
+          justify-center
           items-center
           flex-grow
           mt-4
         "
       >
-        <h2 className="text-4xl font-semibold">Listings</h2>
-        <div className="space-y-4 mt-4">
-          {listings.map((item, index) => (
-            <ListingCard key={index} listing={item} />
-          ))}
+        <div className="text-8xl font-semibold">
+          <h1>Job</h1>
+          <h1>Listings</h1>
         </div>
       </div>
     </Layout>
@@ -27,13 +23,3 @@ const IndexPage = ({ listings }) => {
 };
 
 export default IndexPage;
-
-export async function getServerSideProps() {
-  const listings = await getAllListings();
-
-  return {
-    props: {
-      listings: JSON.parse(JSON.stringify(listings)),
-    },
-  };
-}
