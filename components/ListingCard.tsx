@@ -29,15 +29,21 @@ const ListingCard: React.FC<Props> = ({ listing }) => {
         "
         dangerouslySetInnerHTML={{ __html: listing.description.join("\n") }}
       ></div>
-      <div className="flex flex-row justify-end items-center space-x-4 mt-2">
-        <Link href={`/listings/${listing._id}`}>
-          <a className="hover:underline">Read More</a>
-        </Link>
-        <Link href={listing["apply link"]}>
-          <a target="_blank" className="hover:underline">
-            Apply Now
-          </a>
-        </Link>
+      <div className="flex flex-row justify-between items-center mt-2">
+        <div className="text-gray-500">
+          Posted:{" "}
+          {new Date(listing["posting date"]).toLocaleDateString("en-US")}
+        </div>
+        <div className="flex flex-row justify-end items-center space-x-4">
+          <Link href={`/listings/${listing._id}`}>
+            <a className="hover:underline">Read More</a>
+          </Link>
+          <Link href={listing["apply link"]}>
+            <a target="_blank" className="hover:underline">
+              Apply Now
+            </a>
+          </Link>
+        </div>
       </div>
     </div>
   );

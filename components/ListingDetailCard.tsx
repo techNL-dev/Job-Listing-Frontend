@@ -27,7 +27,11 @@ const ListingDetailCard: React.FC<Props> = ({ listing }) => {
         "
         dangerouslySetInnerHTML={{ __html: listing.description.join("\n") }}
       ></div>
-      <div className="flex flex-row justify-end items-center space-x-4 mt-2">
+      <div className="flex flex-row justify-between items-center mt-2">
+        <div className="text-gray-500">
+          Posted:{" "}
+          {new Date(listing["posting date"]).toLocaleDateString("en-US")}
+        </div>
         <Link href={listing["apply link"]}>
           <a target="_blank" className="hover:underline">
             Apply Now
