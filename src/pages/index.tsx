@@ -1,6 +1,8 @@
 import Layout from "../components/Layout";
+import { trpc } from "@/utils/trpc";
 
 const IndexPage = () => {
+  const { data, isLoading } = trpc.useQuery(["hello", { text: "testing" }]);
   return (
     <Layout title="Home">
       <div

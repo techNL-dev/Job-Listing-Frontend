@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
 import StyledInput from "../../components/StyledInput";
-import { IListing } from "../../models/Listing";
+import { IListing } from "../../../models/Listing";
 import { listingSearch } from "../api/search/[term]";
 
 type Props = {};

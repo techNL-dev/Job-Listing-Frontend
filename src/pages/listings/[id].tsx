@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../../components/Layout";
 import ListingDetailCard from "../../components/ListingDetailCard";
-import { IListing } from "../../models/Listing";
+import { IListing } from "../../../models/Listing";
 import { getListingById } from "../api/listings/[id]";
 
 type Props = {

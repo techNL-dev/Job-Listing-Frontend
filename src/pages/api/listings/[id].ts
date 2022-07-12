@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import dbConnect from "../../../libs/dbConnect";
-import Listing, { IListing } from "../../../models/Listing";
+import dbConnect from "../../../../libs/dbConnect";
+import Listing, { IListing } from "../../../../models/Listing";
 
 export const getListingById = async (id: string): Promise<IListing> => {
   await dbConnect();

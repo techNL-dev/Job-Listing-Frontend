@@ -1,6 +1,6 @@
 import Layout from "../../components/Layout";
 import ListingCard from "../../components/ListingCard";
-import { IListing } from "../../models/Listing";
+import { IListing } from "../../../models/Listing";
 import { getAllListings } from "../api/listings";
 
 const IndexPage = ({ listings }) => {
