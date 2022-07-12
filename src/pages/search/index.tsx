@@ -2,8 +2,8 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
 import StyledInput from "../../components/StyledInput";
-import { IListing } from "../../../models/Listing";
-import { listingSearch } from "../api/search/[term]";
+import { trpc } from "@/utils/trpc";
+import { Listing } from "@prisma/client";
 
 type Props = {};
 
@@ -11,7 +11,9 @@ const Index = (props: Props) => {
   const router = useRouter();
 
   const [query, setQuery] = useState<string>("");
-  const [listings, setListings] = useState<IListing[]>([]);
+  const [listings, setListings] = useState<Listing[]>([]);
+
+  //const listingSearch = trpc.useMutation(["listing-search"]);
 
   useEffect(() => {
     const term = router.query.term ? router.query.term.toString() : "";
@@ -25,8 +27,9 @@ const Index = (props: Props) => {
       router.push("", undefined, { shallow: true });
       return;
     }
-    const resultListings = await listingSearch(searchTerm);
-    setListings(resultListings);
+    /*await listingSearch.mutateAsync({ term: searchTerm });
+    console.log(listingSearch);*/
+    setListings([]);
     router.push(`?term=${searchTerm}`, undefined, { shallow: true });
   };
 

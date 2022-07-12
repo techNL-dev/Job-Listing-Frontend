@@ -1,9 +1,10 @@
 import Layout from "../../components/Layout";
 import ListingCard from "../../components/ListingCard";
-import { IListing } from "../../../models/Listing";
-import { getAllListings } from "../api/listings";
+import { trpc } from "@/utils/trpc";
 
-const IndexPage = ({ listings }) => {
+const IndexPage = () => {
+  const getAllListings = trpc.useQuery(["get-all-listings"]);
+
   return (
     <Layout title="Listings">
       <div
@@ -18,9 +19,11 @@ const IndexPage = ({ listings }) => {
       >
         <h2 className="text-4xl font-semibold">Listings</h2>
         <div className="space-y-4 mt-4">
-          {listings.map((item, index) => (
-            <ListingCard key={index} listing={item} />
-          ))}
+          {getAllListings.isLoading
+            ? "Loading..."
+            : getAllListings.data?.map((item, index) => (
+                <ListingCard key={index} listing={item} />
+              ))}
         </div>
       </div>
     </Layout>
@@ -28,15 +31,3 @@ const IndexPage = ({ listings }) => {
 };
 
 export default IndexPage;
-
-export async function getServerSideProps() {
-  const listings: IListing[] = JSON.parse(
-    JSON.stringify(await getAllListings())
-  );
-
-  return {
-    props: {
-      listings: listings,
-    },
-  };
-}

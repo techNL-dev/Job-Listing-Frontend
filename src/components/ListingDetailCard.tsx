@@ -1,9 +1,9 @@
+import { Listing } from "@prisma/client";
 import Link from "next/link";
 import React from "react";
-import { IListing } from "../../models/Listing";
 
 type Props = {
-  listing: IListing;
+  listing: Listing;
 };
 
 const ListingDetailCard: React.FC<Props> = ({ listing }) => {
@@ -29,10 +29,9 @@ const ListingDetailCard: React.FC<Props> = ({ listing }) => {
       ></div>
       <div className="flex flex-row justify-between items-center mt-2">
         <div className="text-gray-500">
-          Posted:{" "}
-          {new Date(listing["posting date"]).toLocaleDateString("en-US")}
+          Posted: {new Date(listing.posting_date).toLocaleDateString("en-US")}
         </div>
-        <Link href={listing["apply link"]}>
+        <Link href={listing.apply_link}>
           <a target="_blank" className="hover:underline">
             Apply Now
           </a>
