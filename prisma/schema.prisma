@@ -14,8 +14,8 @@ model Listing {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   title String
   location String
-  posting_date DateTime
-  application_date DateTime?
+  posting_date String
+  application_date String?
   description String[]
   company String
   apply_link String
