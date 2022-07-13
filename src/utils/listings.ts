@@ -63,7 +63,13 @@ export const listingSearch = async (query: string = "") => {
       },
     ],
   });
-  return listings as unknown as Listing[];
+  // This is gross and I hate it, but I have no clue how to make it work otherwise
+  let typeMapper = listings as unknown as any[];
+  typeMapper.forEach((listing) => {
+    listing.id = listing._id["$oid"];
+    listing.posting_date = listing.posting_date["$date"];
+  });
+  return typeMapper as unknown as Listing[];
 };
 
 export const getListingById = async (id: string) => {
