@@ -9,7 +9,7 @@ import { z } from "zod";
 
 export const appRouter = trpc
   .router()
-  .mutation("listing-search", {
+  .query("listing-search", {
     input: z.object({
       term: z.string(),
     }),

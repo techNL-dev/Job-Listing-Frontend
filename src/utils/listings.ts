@@ -1,4 +1,5 @@
 import { prisma } from "@/backend/utils/prisma";
+import { Listing } from "@prisma/client";
 
 export const listingSearch = async (query: string = "") => {
   if (!query) return [];
@@ -6,7 +7,7 @@ export const listingSearch = async (query: string = "") => {
     pipeline: [
       {
         $search: {
-          index: "Listing Search",
+          index: "ListingSearch",
           compound: {
             should: [
               {
@@ -42,6 +43,17 @@ export const listingSearch = async (query: string = "") => {
                   },
                 },
               },
+              {
+                autocomplete: {
+                  query: query,
+                  path: "company",
+                  score: {
+                    boost: {
+                      value: 5,
+                    },
+                  },
+                },
+              },
             ],
           },
         },
@@ -51,7 +63,7 @@ export const listingSearch = async (query: string = "") => {
       },
     ],
   });
-  return listings;
+  return listings as unknown as Listing[];
 };
 
 export const getListingById = async (id: string) => {

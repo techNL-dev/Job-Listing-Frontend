@@ -2,8 +2,9 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
 import StyledInput from "../../components/StyledInput";
-import { trpc } from "@/utils/trpc";
+import { client } from "@/utils/trpc";
 import { Listing } from "@prisma/client";
+import ListingCard from "@/components/ListingCard";
 
 type Props = {};
 
@@ -12,8 +13,6 @@ const Index = (props: Props) => {
 
   const [query, setQuery] = useState<string>("");
   const [listings, setListings] = useState<Listing[]>([]);
-
-  //const listingSearch = trpc.useMutation(["listing-search"]);
 
   useEffect(() => {
     const term = router.query.term ? router.query.term.toString() : "";
@@ -27,9 +26,10 @@ const Index = (props: Props) => {
       router.push("", undefined, { shallow: true });
       return;
     }
-    /*await listingSearch.mutateAsync({ term: searchTerm });
-    console.log(listingSearch);*/
-    setListings([]);
+    const searchResults = await client.query("listing-search", {
+      term: searchTerm,
+    });
+    setListings(searchResults);
     router.push(`?term=${searchTerm}`, undefined, { shallow: true });
   };
 
@@ -84,9 +84,9 @@ const Index = (props: Props) => {
             </button>
           </div>
         </form>
-        <div>
+        <div className="space-y-4 mt-4">
           {listings.map((item, index) => (
-            <div key={index}>{item.title}</div>
+            <ListingCard key={index} listing={item} />
           ))}
         </div>
       </div>
