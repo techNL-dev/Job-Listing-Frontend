@@ -2,9 +2,9 @@ import {
   listingSearch,
   getListingById,
   getAllListings,
+  getListingsByCompany,
 } from "@/utils/listings";
 import * as trpc from "@trpc/server";
-import * as trpcNext from "@trpc/server/adapters/next";
 import { z } from "zod";
 
 export const appRouter = trpc
@@ -28,6 +28,14 @@ export const appRouter = trpc
   .query("get-all-listings", {
     async resolve() {
       return await getAllListings();
+    },
+  })
+  .query("get-listings-by-company", {
+    input: z.object({
+      company: z.string(),
+    }),
+    async resolve({ input }) {
+      return await getListingsByCompany(input?.company);
     },
   });
 

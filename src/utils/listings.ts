@@ -83,3 +83,14 @@ export const getListingById = async (id: string) => {
 export const getAllListings = async () => {
   return await prisma.listing.findMany();
 };
+
+export const getListingsByCompany = async (company: string) => {
+  return await prisma.listing.findMany({
+    where: {
+      company: {
+        equals: company,
+        mode: "insensitive",
+      },
+    },
+  });
+};

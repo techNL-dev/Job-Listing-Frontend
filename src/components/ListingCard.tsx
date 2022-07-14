@@ -18,7 +18,9 @@ const ListingCard: React.FC<Props> = ({ listing }) => {
     "
     >
       <h2 className="text-2xl font-medium">{listing.title}</h2>
-      <p>{listing.company}</p>
+      <Link href={`/listings/${listing.company.toLowerCase()}`}>
+        <a className="hover:underline">{listing.company}</a>
+      </Link>
       <p>{listing.location}</p>
       <div
         className="
@@ -34,7 +36,9 @@ const ListingCard: React.FC<Props> = ({ listing }) => {
           Posted: {new Date(listing.posting_date).toLocaleDateString("en-US")}
         </div>
         <div className="flex flex-row justify-end items-center space-x-4">
-          <Link href={`/listings/${listing.id}`}>
+          <Link
+            href={`/listings/${listing.company.toLowerCase()}/${listing.id}`}
+          >
             <a className="hover:underline">Read More</a>
           </Link>
           <Link href={listing.apply_link}>

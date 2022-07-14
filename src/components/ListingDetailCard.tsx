@@ -18,7 +18,9 @@ const ListingDetailCard: React.FC<Props> = ({ listing }) => {
       "
     >
       <h2 className="text-2xl font-medium">{listing.title}</h2>
-      <p>{listing.company}</p>
+      <Link href={`/listings/${listing.company.toLowerCase()}`}>
+        <a className="hover:underline">{listing.company}</a>
+      </Link>
       <p>{listing.location}</p>
       <div
         className="

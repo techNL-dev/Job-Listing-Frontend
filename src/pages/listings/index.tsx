@@ -1,10 +1,13 @@
 import Layout from "../../components/Layout";
 import ListingCard from "../../components/ListingCard";
-import { trpc } from "@/utils/trpc";
+import { Listing } from "@prisma/client";
+import { client } from "@/utils/trpc";
 
-const IndexPage = () => {
-  const getAllListings = trpc.useQuery(["get-all-listings"]);
+type Props = {
+  listings: Listing[];
+};
 
+const IndexPage: React.FC<Props> = ({ listings }) => {
   return (
     <Layout title="Listings">
       <div
@@ -19,11 +22,9 @@ const IndexPage = () => {
       >
         <h2 className="text-4xl font-semibold">Listings</h2>
         <div className="space-y-4 mt-4">
-          {getAllListings.isLoading
-            ? "Loading..."
-            : getAllListings.data?.map((item, index) => (
-                <ListingCard key={index} listing={item} />
-              ))}
+          {listings?.map((item, index) => (
+            <ListingCard key={index} listing={item} />
+          ))}
         </div>
       </div>
     </Layout>
@@ -31,3 +32,13 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
+
+export async function getStaticProps() {
+  const listings = await client.query("get-all-listings");
+
+  return {
+    props: {
+      listings,
+    },
+  };
+}
