@@ -14,6 +14,7 @@ const IndexPage = () => {
         "
       >
         <div className="text-8xl font-semibold">
+          <h1>NL</h1>
           <h1>Job</h1>
           <h1>Listings</h1>
         </div>
