@@ -46,11 +46,13 @@ const ListingCard: React.FC<Props> = ({ listing }) => {
           >
             <a className="hover:underline">Read More</a>
           </Link>
-          <Link href={listing.apply_link}>
-            <a target="_blank" className="hover:underline">
-              Apply Now
-            </a>
-          </Link>
+          {listing.apply_link && (
+            <Link href={listing.apply_link}>
+              <a target="_blank" className="hover:underline">
+                Apply Now
+              </a>
+            </Link>
+          )}
         </div>
       </div>
     </div>

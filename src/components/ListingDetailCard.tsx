@@ -38,11 +38,13 @@ const ListingDetailCard: React.FC<Props> = ({ listing }) => {
         <div className="text-gray-500">
           Posted: {new Date(listing.posting_date).toLocaleDateString("en-US")}
         </div>
-        <Link href={listing.apply_link}>
-          <a target="_blank" className="hover:underline">
-            Apply Now
-          </a>
-        </Link>
+        {listing.apply_link && (
+          <Link href={listing.apply_link}>
+            <a target="_blank" className="hover:underline">
+              Apply Now
+            </a>
+          </Link>
+        )}
       </div>
     </div>
   );
