@@ -22,30 +22,18 @@ const SingleListing: React.FC<Props> = ({ listing }) => {
 
 export default SingleListing;
 
-export async function getStaticPaths() {
-  const allListings = await client.query("get-all-listings");
-  return {
-    paths: allListings.map((listing) => ({
-      params: {
-        company: listing.company.toLowerCase(),
-        id: listing.id,
-      },
-    })),
-    fallback: false,
-  };
-}
-
-export async function getStaticProps({
-  params,
-}: {
-  params: { company: string; id: string };
+export async function getServerSideProps(context: {
+  query: { company: string; id: string };
 }) {
-  const { company, id } = params;
+  const { company, id } = context.query;
+
+  console.log(company);
+
   const listing = await client.query("get-listing-by-id", { id });
 
   return {
     props: {
-      company: COMPANY_NAMES.get(company),
+      company: company.toUpperCase(),
       listing,
     },
   };

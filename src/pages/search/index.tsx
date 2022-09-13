@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Layout from "../../components/Layout";
 import StyledInput from "../../components/StyledInput";
 import { client } from "@/utils/trpc";
@@ -11,11 +11,14 @@ type Props = {};
 const Index = (props: Props) => {
   const router = useRouter();
 
+  const searchTermExists = useRef(router.query.term === undefined);
+
   const [query, setQuery] = useState<string>("");
   const [listings, setListings] = useState<Listing[]>([]);
 
   useEffect(() => {
-    const term = router.query.term ? router.query.term.toString() : "";
+    searchTermExists.current = router.query.term !== undefined;
+    const term = searchTermExists.current ? router.query.term.toString() : "";
     setQuery(term);
     search(term);
   }, [router.query.term]);
@@ -36,22 +39,22 @@ const Index = (props: Props) => {
   return (
     <Layout title="Search">
       <div
-        className="
+        className={`
           flex
           flex-col
-          justify-start
+          justify-${searchTermExists.current ? "start" : "center"}
           items-center
           flex-grow
           mt-4
-        "
+        `}
       >
         <h1
-          className="
-            sm:text-5xl
-            text-3xl
+          className={`
+            sm:text-${searchTermExists.current ? 5 : 7}xl
+            text-${searchTermExists.current ? 3 : 5}xl
             font-semibold
             mb-2
-          "
+          `}
         >
           Search
         </h1>

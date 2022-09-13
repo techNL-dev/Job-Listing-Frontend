@@ -18,10 +18,11 @@ const IndexPage: React.FC<Props> = ({ listings }) => {
           items-center
           flex-grow
           mt-4
+          mb-4
         "
       >
         <h2 className="text-4xl font-semibold">Listings</h2>
-        <div className="space-y-4 mt-4">
+        <div className="gap-4 mt-4 grid grid-cols-2">
           {listings?.map((item, index) => (
             <ListingCard key={index} listing={item} />
           ))}
@@ -33,7 +34,7 @@ const IndexPage: React.FC<Props> = ({ listings }) => {
 
 export default IndexPage;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const listings = await client.query("get-all-listings");
 
   return {

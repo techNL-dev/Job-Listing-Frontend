@@ -15,22 +15,27 @@ const ListingCard: React.FC<Props> = ({ listing }) => {
         rounded-md
         shadow-md
         max-w-xl
+        flex
+        flex-col
+        justify-between
     "
     >
-      <h2 className="text-2xl font-medium">{listing.title}</h2>
-      <Link href={`/listings/${listing.company.toLowerCase()}`}>
-        <a className="hover:underline">{listing.company}</a>
-      </Link>
-      <p>{listing.location}</p>
-      <div
-        className="
+      <div>
+        <h2 className="text-2xl font-medium">{listing.title}</h2>
+        <Link href={`/listings/${listing.company.toLowerCase()}`}>
+          <a className="hover:underline">{listing.company}</a>
+        </Link>
+        <p>{listing.location}</p>
+        <div
+          className="
             max-h-24
             overflow-hidden
             mt-1
             ellipsis
         "
-        dangerouslySetInnerHTML={{ __html: listing.description.join("\n") }}
-      ></div>
+          dangerouslySetInnerHTML={{ __html: listing.description.join("\n") }}
+        ></div>
+      </div>
       <div className="flex flex-row justify-between items-center mt-2">
         <div className="text-gray-500">
           Posted: {new Date(listing.posting_date).toLocaleDateString("en-US")}

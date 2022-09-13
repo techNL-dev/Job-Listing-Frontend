@@ -13,10 +13,10 @@ datasource db {
 model Listing {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   title String
-  location String
+  location String?
   posting_date DateTime
   application_date DateTime?
   description String[]
   company String
-  apply_link String
+  apply_link String?
 }
