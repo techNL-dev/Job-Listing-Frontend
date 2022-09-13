@@ -49,12 +49,12 @@ const Index = (props: Props) => {
         `}
       >
         <h1
-          className={`
-            sm:text-${searchTermExists.current ? 5 : 7}xl
-            text-${searchTermExists.current ? 3 : 5}xl
+          className="
+            sm:text-5xl
+            text-3xl
             font-semibold
             mb-2
-          `}
+          "
         >
           Search
         </h1>
