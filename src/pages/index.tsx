@@ -33,7 +33,7 @@ const IndexPage = () => {
           flex-grow
         "
       >
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center p-4">
           <Image
             src="/TechNLLogoHorizontal.png"
             alt="TechNL"
@@ -41,10 +41,7 @@ const IndexPage = () => {
             height="275"
             width="864"
           />
-          <div className="text-7xl font-light -mt-20">
-            <h1>Job Listings</h1>
-          </div>
-          <div className="mt-8 space-x-4 w-full flex flex-row">
+          <div className="mt-8 space-x-4 w-full flex flex-row sm:justify-start justify-center">
             <button
               className={BUTTON_CLASS}
               onClick={() => router.push("/listings")}

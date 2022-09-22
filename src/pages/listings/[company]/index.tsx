@@ -24,10 +24,19 @@ const Index: React.FC<Props> = ({ company, listings }) => {
         "
       >
         <h1 className="text-4xl font-semibold">{company}</h1>
-        <div className="gap-4 mt-4 grid grid-cols-2">
-          {listings?.map((item, index) => (
-            <ListingCard key={index} listing={item} />
-          ))}
+        <div>
+          {listings?.length ? (
+            <div className="gap-4 mt-4 grid grid-cols-2">
+              {listings?.map((item, index) => (
+                <ListingCard key={index} listing={item} />
+              ))}
+            </div>
+          ) : (
+            <h3 className="py-4">
+              We don&apos;t have any listings for this particular company right
+              now, check back later.
+            </h3>
+          )}
         </div>
       </div>
     </Layout>

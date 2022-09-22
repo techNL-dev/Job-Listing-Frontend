@@ -46,7 +46,7 @@ const Layout = ({
       "
       >
         <Link href="/">
-          <h1 className="text-2xl font-semibold cursor-pointer">
+          <h1 className="sm:text-2xl font-semibold cursor-pointer">
             TechNL Job Listings
           </h1>
         </Link>
