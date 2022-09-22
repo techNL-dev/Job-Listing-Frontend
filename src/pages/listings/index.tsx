@@ -22,7 +22,7 @@ const IndexPage: React.FC<Props> = ({ listings }) => {
         "
       >
         <h2 className="text-4xl font-semibold">Listings</h2>
-        <div className="gap-4 mt-4 grid grid-cols-2">
+        <div className="gap-4 mt-4 grid sm:grid-cols-2">
           {listings?.map((item, index) => (
             <ListingCard key={index} listing={item} />
           ))}
