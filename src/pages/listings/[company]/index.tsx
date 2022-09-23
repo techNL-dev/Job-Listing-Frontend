@@ -25,7 +25,7 @@ const Index: React.FC<Props> = ({ company, listings }) => {
         <h1 className="text-4xl font-semibold">{company}</h1>
         <div>
           {listings?.length ? (
-            <div className="gap-4 mt-4 grid grid-cols-2">
+            <div className="gap-4 mt-4 grid md:grid-cols-2 px-2">
               {listings?.map((item, index) => (
                 <ListingCard key={index} listing={item} />
               ))}

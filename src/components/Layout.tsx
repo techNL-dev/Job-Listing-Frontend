@@ -46,9 +46,10 @@ const Layout = ({
       "
       >
         <Link href="/">
-          <h1 className="sm:text-2xl font-semibold cursor-pointer">
-            TechNL Job Listings
-          </h1>
+          <div className="text-2xl font-semibold cursor-pointer">
+            <h1 className="sm:block hidden">TechNL Job Listings</h1>
+            <h1 className="block sm:hidden">TechNL</h1>
+          </div>
         </Link>
         <nav className="flex flex-row items-center space-x-4">
           <Link href="/listings">

@@ -87,7 +87,7 @@ const Index = (props: Props) => {
             </button>
           </div>
         </form>
-        <div className="space-y-4 mt-4">
+        <div className="space-y-4 mt-4 p-2">
           {listings.map((item, index) => (
             <ListingCard key={index} listing={item} />
           ))}
