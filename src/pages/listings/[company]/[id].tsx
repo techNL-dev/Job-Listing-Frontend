@@ -4,7 +4,6 @@ import React from "react";
 import Layout from "../../../components/Layout";
 import ListingDetailCard from "../../../components/ListingDetailCard";
 import { useRouter } from "next/router";
-import { COMPANY_NAMES } from "@/utils/companies";
 
 type Props = {
   listing: Listing;

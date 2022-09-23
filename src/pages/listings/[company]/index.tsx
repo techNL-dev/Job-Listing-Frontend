@@ -3,7 +3,6 @@ import Layout from "@/components/Layout";
 import { useRouter } from "next/router";
 import { client, trpc } from "@/utils/trpc";
 import ListingCard from "@/components/ListingCard";
-import { COMPANY_NAMES } from "@/utils/companies";
 import { Listing } from "@prisma/client";
 
 type Props = {
