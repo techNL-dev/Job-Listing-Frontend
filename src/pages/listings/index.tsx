@@ -36,23 +36,23 @@ export default IndexPage;
 
 // Switch the comments if you need it to update more often
 
-// export async function getStaticProps() {
-//   const listings = await client.query("get-all-listings");
-
-//   return {
-//     props: {
-//       listings,
-//     },
-//     revalidate: 86400,
-//   };
-// }
-
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const listings = await client.query("get-all-listings");
 
   return {
     props: {
       listings,
     },
+    revalidate: 3600,
   };
 }
+
+// export async function getServerSideProps() {
+//   const listings = await client.query("get-all-listings");
+
+//   return {
+//     props: {
+//       listings,
+//     },
+//   };
+// }

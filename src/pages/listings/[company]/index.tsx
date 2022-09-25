@@ -46,54 +46,17 @@ const Index: React.FC<Props> = ({ company, listings }) => {
 
 export default Index;
 
-// Switch the comments if you need it to update more often
+export async function getServerSideProps(context: {
+  query: { company: string };
+}) {
+  const company = context.query.company;
 
-export async function getStaticPaths() {
-  const res = await fetch(
-    "https://technl-job-listing-scraper.herokuapp.com/companies"
-  );
-  const companies: string[] = await res.json();
-  const companyPaths = companies.map((item) => ({
-    params: { company: item },
-  }));
-
-  console.log(companyPaths);
-
-  return {
-    paths: companyPaths,
-    fallback: false, // can also be true or 'blocking'
-  };
-}
-
-export async function getStaticProps(context: { params: { company: string } }) {
-  //console.log("test");
-
-  const { company } = context.params;
-
-  const listings = await getListingsByCompany(company);
-
-  console.log(company);
+  const listings = await client.query("get-listings-by-company", { company });
 
   return {
     props: {
       company: company.toUpperCase(),
-      listings: [],
+      listings,
     },
-    revalidate: 86400,
   };
 }
-
-// export async function getServerSideProps(context: {
-//   query: { company: string };
-// }) {
-//   const company = context.query.company;
-
-//   const listings = await client.query("get-listings-by-company", { company });
-
-//   return {
-//     props: {
-//       company: company.toUpperCase(),
-//       listings,
-//     },
-//   };
-// }
