@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Layout from "../components/Layout";
+import { client } from "@/utils/trpc";
 
 type Props = {
   companies: string[];
@@ -61,12 +62,7 @@ const AboutPage: React.FC<Props> = ({ companies }) => (
 export default AboutPage;
 
 export const getStaticProps = async () => {
-  const res = await fetch(
-    "https://technl-job-listing-scraper.herokuapp.com/companies"
-  );
-  const companies: string[] = await res.json();
-
-  console.log(companies);
+  const companies = await client.query("get-all-companies");
 
   return {
     props: { companies }, // will be passed to the page component as props

@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 import { client, trpc } from "@/utils/trpc";
 import ListingCard from "@/components/ListingCard";
 import { Listing } from "@prisma/client";
+import { getAllCompanies } from "@/utils/companies";
+import { getListingsByCompany } from "@/utils/listings";
 
 type Props = {
   company: string;
@@ -25,7 +27,7 @@ const Index: React.FC<Props> = ({ company, listings }) => {
         <h1 className="text-4xl font-semibold">{company}</h1>
         <div>
           {listings?.length ? (
-            <div className="gap-4 mt-4 grid md:grid-cols-2 px-2">
+            <div className="gap-4 my-4 grid md:grid-cols-2 px-2">
               {listings?.map((item, index) => (
                 <ListingCard key={index} listing={item} />
               ))}
@@ -44,11 +46,47 @@ const Index: React.FC<Props> = ({ company, listings }) => {
 
 export default Index;
 
+// Switch the comments if you need it to update more often
+
+// export async function getStaticPaths() {
+//   const res = await fetch(
+//     "https://technl-job-listing-scraper.herokuapp.com/companies"
+//   );
+//   const companies: string[] = await res.json();
+//   const companyPaths = companies.map((item) => ({
+//     params: { company: item },
+//   }));
+
+//   console.log(companyPaths);
+
+//   return {
+//     paths: [{ params: { company: "test" } }],
+//     fallback: false, // can also be true or 'blocking'
+//   };
+// }
+
+// export async function getStaticProps(context: { query: { company: string } }) {
+//   //console.log("test");
+
+//   const { company } = context.query;
+
+//   //const listings = await getListingsByCompany(company);
+
+//   console.log(company);
+
+//   return {
+//     props: {
+//       company: company.toUpperCase(),
+//       listings: [],
+//     },
+//     revalidate: 10,
+//   };
+// }
+
 export async function getServerSideProps(context: {
   query: { company: string };
 }) {
   const company = context.query.company;
-  console.log(company);
 
   const listings = await client.query("get-listings-by-company", { company });
 
