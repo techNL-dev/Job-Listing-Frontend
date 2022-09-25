@@ -1,3 +1,4 @@
+import { getAllCompanies } from "@/utils/companies";
 import {
   listingSearch,
   getListingById,
@@ -36,6 +37,11 @@ export const appRouter = trpc
     }),
     async resolve({ input }) {
       return await getListingsByCompany(input?.company);
+    },
+  })
+  .query("get-all-companies", {
+    async resolve() {
+      return await getAllCompanies();
     },
   });
 

@@ -11,14 +11,14 @@ type Props = {};
 const Index = (props: Props) => {
   const router = useRouter();
 
-  const searchTermExists = useRef(router.query.term === undefined);
+  const searchTerm = useRef<string | undefined>(undefined);
 
   const [query, setQuery] = useState<string>("");
   const [listings, setListings] = useState<Listing[]>([]);
 
   useEffect(() => {
-    searchTermExists.current = router.query.term !== undefined;
-    const term = searchTermExists.current ? router.query.term.toString() : "";
+    searchTerm.current = router.query.term?.toString();
+    const term = searchTerm.current ? router.query.term?.toString() : "";
     setQuery(term);
     search(term);
   }, [router.query.term]);
@@ -42,7 +42,8 @@ const Index = (props: Props) => {
         className={`
           flex
           flex-col
-          justify-${searchTermExists.current ? "start" : "center"}
+          sm:${searchTerm.current ? "justify-start" : "justify-center"}
+          justify-start
           items-center
           flex-grow
           mt-4
@@ -87,10 +88,17 @@ const Index = (props: Props) => {
             </button>
           </div>
         </form>
-        <div className="space-y-4 mt-4 p-2">
-          {listings.map((item, index) => (
-            <ListingCard key={index} listing={item} />
-          ))}
+        <div className="space-y-4 my-4 px-2">
+          {searchTerm.current &&
+            (listings.length ? (
+              listings.map((item, index) => (
+                <ListingCard key={index} listing={item} />
+              ))
+            ) : (
+              <p>
+                &quot;{searchTerm.current}&quot; did not match any listings...
+              </p>
+            ))}
         </div>
       </div>
     </Layout>
