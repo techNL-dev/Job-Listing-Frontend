@@ -48,52 +48,52 @@ export default Index;
 
 // Switch the comments if you need it to update more often
 
-// export async function getStaticPaths() {
-//   const res = await fetch(
-//     "https://technl-job-listing-scraper.herokuapp.com/companies"
-//   );
-//   const companies: string[] = await res.json();
-//   const companyPaths = companies.map((item) => ({
-//     params: { company: item },
-//   }));
+export async function getStaticPaths() {
+  const res = await fetch(
+    "https://technl-job-listing-scraper.herokuapp.com/companies"
+  );
+  const companies: string[] = await res.json();
+  const companyPaths = companies.map((item) => ({
+    params: { company: item },
+  }));
 
-//   console.log(companyPaths);
+  console.log(companyPaths);
 
-//   return {
-//     paths: [{ params: { company: "test" } }],
-//     fallback: false, // can also be true or 'blocking'
-//   };
-// }
+  return {
+    paths: companyPaths,
+    fallback: false, // can also be true or 'blocking'
+  };
+}
 
-// export async function getStaticProps(context: { query: { company: string } }) {
-//   //console.log("test");
+export async function getStaticProps(context: { query: { company: string } }) {
+  //console.log("test");
 
-//   const { company } = context.query;
+  const { company } = context.query;
 
-//   //const listings = await getListingsByCompany(company);
+  const listings = await getListingsByCompany(company);
 
-//   console.log(company);
-
-//   return {
-//     props: {
-//       company: company.toUpperCase(),
-//       listings: [],
-//     },
-//     revalidate: 10,
-//   };
-// }
-
-export async function getServerSideProps(context: {
-  query: { company: string };
-}) {
-  const company = context.query.company;
-
-  const listings = await client.query("get-listings-by-company", { company });
+  console.log(company);
 
   return {
     props: {
       company: company.toUpperCase(),
-      listings,
+      listings: [],
     },
+    revalidate: 86400,
   };
 }
+
+// export async function getServerSideProps(context: {
+//   query: { company: string };
+// }) {
+//   const company = context.query.company;
+
+//   const listings = await client.query("get-listings-by-company", { company });
+
+//   return {
+//     props: {
+//       company: company.toUpperCase(),
+//       listings,
+//     },
+//   };
+// }
