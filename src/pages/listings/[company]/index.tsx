@@ -65,10 +65,10 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps(context: { query: { company: string } }) {
+export async function getStaticProps(context: { params: { company: string } }) {
   //console.log("test");
 
-  const { company } = context.query;
+  const { company } = context.params;
 
   const listings = await getListingsByCompany(company);
 
