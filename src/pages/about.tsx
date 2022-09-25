@@ -62,7 +62,10 @@ const AboutPage: React.FC<Props> = ({ companies }) => (
 export default AboutPage;
 
 export const getStaticProps = async () => {
-  const companies = await client.query("get-all-companies");
+  const res = await fetch(
+    "https://technl-job-listing-scraper.herokuapp.com/companies"
+  );
+  const companies: string[] = await res.json();
 
   return {
     props: { companies }, // will be passed to the page component as props
