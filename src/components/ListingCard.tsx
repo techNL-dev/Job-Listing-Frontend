@@ -33,7 +33,7 @@ const ListingCard: React.FC<Props> = ({ listing }) => {
             mt-1
             ellipsis
         "
-          dangerouslySetInnerHTML={{ __html: listing.description.join("\n") }}
+          dangerouslySetInnerHTML={{ __html: listing.description || "" }}
         ></div>
       </div>
       <div className="flex flex-row justify-between items-center mt-2">

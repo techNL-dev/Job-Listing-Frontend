@@ -31,7 +31,7 @@ const ListingDetailCard: React.FC<Props> = ({ listing }) => {
           overflow-hidden
           mt-1
         "
-          dangerouslySetInnerHTML={{ __html: listing.description.join("\n") }}
+          dangerouslySetInnerHTML={{ __html: listing.description || "" }}
         ></div>
       </div>
       <div className="flex flex-row justify-between items-center mt-2">
