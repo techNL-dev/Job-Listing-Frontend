@@ -34,25 +34,12 @@ const IndexPage: React.FC<Props> = ({ listings }) => {
 
 export default IndexPage;
 
-// Switch the comments if you need it to update more often
-
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const listings = await client.query("get-all-listings");
 
   return {
     props: {
       listings,
     },
-    revalidate: 3600,
   };
 }
-
-// export async function getServerSideProps() {
-//   const listings = await client.query("get-all-listings");
-
-//   return {
-//     props: {
-//       listings,
-//     },
-//   };
-// }
