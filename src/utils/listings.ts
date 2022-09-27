@@ -81,11 +81,22 @@ export const getListingById = async (id: string) => {
 };
 
 export const getAllListings = async () => {
-  return await prisma.listing.findMany();
+  return await prisma.listing.findMany({
+    orderBy: [
+      {
+        posting_date: "desc",
+      },
+    ],
+  });
 };
 
 export const getListingsByCompany = async (company: string) => {
   return await prisma.listing.findMany({
+    orderBy: [
+      {
+        posting_date: "desc",
+      },
+    ],
     where: {
       company: {
         equals: company,
