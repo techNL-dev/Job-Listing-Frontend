@@ -16,7 +16,7 @@ model Listing {
   location String?
   posting_date DateTime
   application_date DateTime?
-  description String[]
+  description String?
   company String
   apply_link String?
 }
