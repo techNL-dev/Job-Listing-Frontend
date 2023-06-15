@@ -43,7 +43,6 @@ const Search = (props: Props) => {
           sm:${searchTerm.current ? "justify-start" : "justify-center"}
           justify-start
           items-center
-          flex-grow
           mt-4
         `}
       >
