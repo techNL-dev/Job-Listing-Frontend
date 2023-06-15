@@ -73,6 +73,23 @@ const Search = (props: Props) => {
             >
               Search
             </button>
+            <button
+              className="
+                bg-red-500
+                rounded-md
+                shadow-md
+                px-2
+                py-1
+                text-white
+                font-semibold
+                text-lg
+              "
+              onClick={() =>
+                router.push(`?term=`, undefined, { shallow: true })
+              }
+            >
+              Clear
+            </button>
           </div>
         </form>
         <div className="space-y-4 my-4 px-2">
