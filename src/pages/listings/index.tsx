@@ -1,7 +1,9 @@
+import Link from "next/link";
 import Layout from "../../components/Layout";
 import ListingCard from "../../components/ListingCard";
 import { Listing } from "@prisma/client";
 import { client } from "@/utils/trpc";
+import Search from "./search";
 
 type Props = {
   listings: Listing[];
@@ -22,6 +24,7 @@ const IndexPage: React.FC<Props> = ({ listings }) => {
         "
       >
         <h2 className="sm:text-5xl text-3xl font-semibold sm:p-2">Listings</h2>
+        <Search/>
         <div className="gap-4 my-4 grid md:grid-cols-2 px-2">
           {listings?.map((item, index) => (
             <ListingCard key={index} listing={item} />

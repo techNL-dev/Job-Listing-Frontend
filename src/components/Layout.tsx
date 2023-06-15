@@ -55,9 +55,9 @@ const Layout = ({
           <Link href="/listings">
             <a>Listings</a>
           </Link>
-          <Link href="/search">
+          {/* <Link href="/search">
             <a>Search</a>
-          </Link>
+          </Link> */}
           <Link href="/about">
             <a>About</a>
           </Link>
