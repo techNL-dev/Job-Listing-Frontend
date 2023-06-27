@@ -36,8 +36,8 @@ const Layout = ({
         flex-row 
         justify-between 
         items-center
-        py-2
-        px-4
+        py-8
+        px-6
         sticky
         top-0
         z-50
@@ -47,8 +47,15 @@ const Layout = ({
       >
         <Link href="/">
           <div className="text-2xl font-semibold cursor-pointer">
-            <h1 className="sm:block hidden">TechNL Job Listings</h1>
-            <h1 className="block sm:hidden">TechNL</h1>
+          <Image
+            src="/TechNLLogoHorizontal.png"
+            alt="TechNL"
+            objectFit="contain"
+            height="48"
+            width="124"
+          />
+            {/* <h1 className="sm:block hidden">TechNL Job Listings</h1> */}
+            {/* <h1 className="block sm:hidden">TechNL</h1> */}
           </div>
         </Link>
         <nav className="flex flex-row items-center space-x-4">
