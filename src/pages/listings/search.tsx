@@ -58,7 +58,7 @@ const Search = (props: Props) => {
             <StyledInput query={query} setQuery={setQuery} />
             <button
               className="
-                bg-blue-500
+                bg-techNLBlue
                 rounded-md
                 shadow-md
                 px-2
@@ -77,7 +77,7 @@ const Search = (props: Props) => {
             </button>
             <button
               className="
-                bg-red-500
+                bg-techNLPinkPurple
                 rounded-md
                 shadow-md
                 px-2
