@@ -43,16 +43,16 @@ const IndexPage = () => {
           />
           <div className="mt-8 space-x-4 w-full flex flex-row sm:justify-start justify-center">
             <button
-              className={BUTTON_CLASS}
+              className="indexPageButtons hover:bg-techNLBlue"
               onClick={() => router.push("/listings")}
             >
               Listings
             </button>
             <button
-              className={BUTTON_CLASS}
-              onClick={() => router.push("/search")}
+              className="indexPageButtons hover:bg-techNLPinkPurple"
+              onClick={() => router.push("/about")}
             >
-              Search
+              About
             </button>
           </div>
         </div>

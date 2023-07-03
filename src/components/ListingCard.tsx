@@ -19,7 +19,7 @@ const ListingCard: React.FC<Props> = ({ listing }) => {
         flex-col
         justify-between
         border-2
-        border-techNLPinkPurple
+        border-techNLBlue
     "
     >
       <div>
