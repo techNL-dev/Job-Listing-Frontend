@@ -6,9 +6,9 @@ module.exports = {
       colors: {
         techNLPinkPurple: "#9d2373",
         techNLBlue: "#78c0c6",
-        black: "#111827",
-        gray: "#374151",
-        white: "#fafafa",
+        techNLBlack: "#111827",
+        techNLGray: "#374151",
+        techNLWhite: "#fafafa",
       },
     },
   },

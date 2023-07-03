@@ -42,7 +42,7 @@ const Layout = ({
         top-0
         z-50
         h-12
-        bg-gray-800 shadow-2xl
+        bg-techNLGray shadow-2xl
       "
       >
         <Link href="/">
