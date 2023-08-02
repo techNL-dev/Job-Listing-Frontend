@@ -8,13 +8,13 @@ const IndexPage = () => {
   const BUTTON_CLASS = `
     text-3xl 
     bg-transparent 
-    hover:bg-white 
+    hover:techNLWhite 
     font-semibold 
-    hover:text-gray-900 
+    hover:techNLGray 
     py-2 
     px-4 
     border-2 
-    border-white 
+    border-techNLWhite 
     hover:border-transparent 
     rounded
     transition-all

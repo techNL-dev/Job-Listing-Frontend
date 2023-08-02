@@ -16,10 +16,10 @@ const Layout = ({
 }: Props) => (
   <div
     className="
-      bg-gray-900 
+      bg-techNLDarkGray 
       min-h-screen 
       h-auto 
-      text-white 
+      text-techNLWhite 
       flex 
       flex-col
     "
