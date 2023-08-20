@@ -10,7 +10,8 @@ const ListingDetailCard: React.FC<Props> = ({ listing }) => {
   return (
     <div
       className="
-        bg-techNLGray
+        bg-techNLWhite
+        dark:bg-techNLGray
         p-4
         rounded-md
         shadow-md
@@ -40,7 +41,7 @@ const ListingDetailCard: React.FC<Props> = ({ listing }) => {
         </div>
         {listing.apply_link && (
           <Link href={listing.apply_link}>
-            <a target="_blank" className="text-techNLPinkPurple bg-techNLBlack px-2 py-1 rounded hover:bg-techNLPinkPurple hover:text-techNLBlack">
+            <a target="_blank" className="text-techNLPinkPurple bg-techNLWhite dark:bg-techNLBlack px-2 py-1 rounded hover:bg-techNLPinkPurple hover:text-techNLBlack">
               Apply Now
             </a>
           </Link>

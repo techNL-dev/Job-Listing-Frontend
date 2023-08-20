@@ -5,23 +5,6 @@ import { useRouter } from "next/router";
 const IndexPage = () => {
   const router = useRouter();
 
-  const BUTTON_CLASS = `
-    text-3xl 
-    bg-transparent 
-    hover:techNLWhite 
-    font-semibold 
-    hover:techNLGray 
-    py-2 
-    px-4 
-    border-2 
-    border-techNLWhite 
-    hover:border-transparent 
-    rounded
-    transition-all
-    ease-linear
-    duration-100
-  `;
-
   return (
     <Layout title="Home" home>
       <div

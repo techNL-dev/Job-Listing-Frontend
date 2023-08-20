@@ -21,7 +21,7 @@ const AboutPage: React.FC<Props> = ({ companies }) => (
         <h1 className="text-6xl font-semibold py-4">About</h1>
         <p className="text-lg py-1">
           The techNL Job Scraping site is the most exhaustive job posting
-          database for Newfoundland and Labrador’s technology sector. The
+          database for Newfoundland and Labrador's technology sector. The
           Listings page updates every day, adding and removing all job postings
           listed and deleted by NL tech companies. Each posting includes
           critical job opportunity details including: job title, employer,

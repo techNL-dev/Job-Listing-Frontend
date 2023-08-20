@@ -17,7 +17,8 @@ const StyledInput: React.FC<Props> = ({ query, setQuery }) => {
           text-xl
           rounded-md
           shadow-md
-          bg-techNLGray
+          bg-techNLWhite
+          dark:bg-techNLGray
           "
         onChange={(e) => setQuery(e.target.value)}
         value={query}

@@ -16,7 +16,8 @@ div#__next {
   py-2 
   px-4 
   border-2 
-  border-techNLWhite 
+  border-techNLDarkGray
+  dark:border-techNLWhite 
   hover:border-transparent 
   rounded
   transition-all

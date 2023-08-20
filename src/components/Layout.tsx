@@ -16,10 +16,12 @@ const Layout = ({
 }: Props) => (
   <div
     className="
-      bg-techNLDarkGray 
+      bg-techNLWhite
+      dark:bg-techNLDarkGray 
       min-h-screen 
-      h-auto 
-      text-techNLWhite 
+      h-auto
+      text-techNLDarkGray 
+      dark:text-techNLWhite 
       flex 
       flex-col
     "
@@ -42,7 +44,9 @@ const Layout = ({
         top-0
         z-50
         h-12
-        bg-techNLGray shadow-2xl
+        bg-techNLWhite
+        dark:bg-techNLGray 
+        shadow-2xl
       "
       >
         <Link href="/">
