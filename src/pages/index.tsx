@@ -14,6 +14,8 @@ const IndexPage = () => {
           justify-center
           items-center
           flex-grow
+          bg-techNLLightGray
+          dark:bg-techNLGray
         "
       >
         <div className="flex flex-col justify-center items-center p-4">
@@ -26,7 +28,7 @@ const IndexPage = () => {
           />
           <div className="mt-8 space-x-4 w-full flex flex-row sm:justify-start justify-center">
             <button
-              className="indexPageButtons hover:bg-techNLBlue"
+              className="indexPageButtons hover:bg-techNLDarkBlue dark:hover:bg-techNLBlue"
               onClick={() => router.push("/listings")}
             >
               Listings

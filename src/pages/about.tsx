@@ -15,6 +15,8 @@ const AboutPage: React.FC<Props> = ({ companies }) => (
         justify-center
         items-center
         flex-grow
+        bg-techNLLightGray
+        dark:bg-techNLGray
       "
     >
       <div className="max-w-6xl p-5">
@@ -48,7 +50,7 @@ const AboutPage: React.FC<Props> = ({ companies }) => (
             href="mailto:talent@technl.ca"
             target="_blank"
             rel="noreferrer"
-            className="text-techNLBlue underline-offset-2 underline"
+            className="text-techNLDarkBlue dark:text-techNLBlue underline-offset-2 underline"
           >
             talent@technl.ca
           </a>

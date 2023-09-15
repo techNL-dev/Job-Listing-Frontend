@@ -58,11 +58,12 @@ const Search = (props: Props) => {
             <StyledInput query={query} setQuery={setQuery} />
             <button
               className="
-                bg-techNLBlue
+                bg-techNLDarkBlue
+                dark:bg-techNLBlue
                 rounded-md
                 shadow-md
                 px-2
-                py-1.5
+                py-2
                 text-white
                 font-semibold
                 text-lg
@@ -81,7 +82,7 @@ const Search = (props: Props) => {
                 rounded-md
                 shadow-md
                 px-2
-                py-1.5
+                py-2
                 text-white
                 font-semibold
                 text-lg
@@ -90,7 +91,7 @@ const Search = (props: Props) => {
                 router.push(`?term=`, undefined, { shallow: true })
               }
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>

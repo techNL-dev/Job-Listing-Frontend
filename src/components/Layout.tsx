@@ -44,7 +44,7 @@ const Layout = ({
         top-0
         z-50
         h-12
-        bg-techNLWhite
+        bg-techNLLightGray
         dark:bg-techNLGray 
         shadow-2xl
       "
@@ -62,15 +62,15 @@ const Layout = ({
             {/* <h1 className="block sm:hidden">TechNL</h1> */}
           </div>
         </Link>
-        <nav className="flex flex-row items-center space-x-4">
+        <nav className="flex flex-row items-center space-x-4 text-techNLDarkBlue dark:text-techNLBlue font-bold">
           <Link href="/listings">
-            <a>Listings</a>
+            <a className="px-4 py-2 hover:bg-techNLDarkBlue dark:hover:bg-techNLBlue hover:text-techNLBlack border-techNLDarkBlue dark:border-techNLBlue border-2 rounded-lg">Listings</a>
           </Link>
           {/* <Link href="/search">
             <a>Search</a>
           </Link> */}
           <Link href="/about">
-            <a>About</a>
+            <a className="px-4 py-2 hover:bg-techNLDarkBlue dark:hover:bg-techNLBlue hover:text-techNLBlack border-techNLDarkBlue dark:border-techNLBlue border-2 rounded-lg">About</a>
           </Link>
         </nav>
       </header>
