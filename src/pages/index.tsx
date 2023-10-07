@@ -5,23 +5,6 @@ import { useRouter } from "next/router";
 const IndexPage = () => {
   const router = useRouter();
 
-  const BUTTON_CLASS = `
-    text-3xl 
-    bg-transparent 
-    hover:bg-white 
-    font-semibold 
-    hover:text-gray-900 
-    py-2 
-    px-4 
-    border-2 
-    border-white 
-    hover:border-transparent 
-    rounded
-    transition-all
-    ease-linear
-    duration-100
-  `;
-
   return (
     <Layout title="Home" home>
       <div
@@ -31,28 +14,42 @@ const IndexPage = () => {
           justify-center
           items-center
           flex-grow
+          bg-techNLLightGray
+          dark:bg-techNLGray
         "
       >
         <div className="flex flex-col justify-center items-center p-4">
+          <div className="hidden dark:block">
           <Image
             src="/TechNLLogoHorizontal.png"
+            alt="TechNL"
+            className="hidden"
+            objectFit="contain"
+            height="275"
+            width="864"
+          />
+          </div>
+          <div className="dark:hidden">
+          <Image
+            src="/TechNLLogoBlackHorizontal.png"
             alt="TechNL"
             objectFit="contain"
             height="275"
             width="864"
           />
+          </div>
           <div className="mt-8 space-x-4 w-full flex flex-row sm:justify-start justify-center">
             <button
-              className={BUTTON_CLASS}
+              className="indexPageButtons hover:bg-techNLDarkBlue dark:hover:bg-techNLBlue"
               onClick={() => router.push("/listings")}
             >
               Listings
             </button>
             <button
-              className={BUTTON_CLASS}
-              onClick={() => router.push("/search")}
+              className="indexPageButtons hover:bg-techNLPinkPurple"
+              onClick={() => router.push("/about")}
             >
-              Search
+              About
             </button>
           </div>
         </div>

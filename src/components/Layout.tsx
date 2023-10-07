@@ -16,10 +16,12 @@ const Layout = ({
 }: Props) => (
   <div
     className="
-      bg-gray-900 
+      bg-techNLWhite
+      dark:bg-techNLDarkGray 
       min-h-screen 
-      h-auto 
-      text-white 
+      h-auto
+      text-techNLDarkGray 
+      dark:text-techNLWhite 
       flex 
       flex-col
     "
@@ -36,30 +38,51 @@ const Layout = ({
         flex-row 
         justify-between 
         items-center
-        py-2
-        px-4
+        py-8
+        px-6
         sticky
         top-0
         z-50
         h-12
-        bg-gray-800 shadow-2xl
+        bg-techNLLightGray
+        dark:bg-techNLGray 
+        shadow-2xl
       "
       >
         <Link href="/">
           <div className="text-2xl font-semibold cursor-pointer">
-            <h1 className="sm:block hidden">TechNL Job Listings</h1>
-            <h1 className="block sm:hidden">TechNL</h1>
+          <div className="hidden dark:block">
+          <Image
+            src="/TechNLLogoHorizontal.png"
+            alt="TechNL"
+            className="hidden"
+            objectFit="contain"
+            height="48"
+            width="124"
+          />
+          </div>
+          <div className="dark:hidden">
+          <Image
+            src="/TechNLLogoBlackHorizontal.png"
+            alt="TechNL"
+            objectFit="contain"
+            height="48"
+            width="124"
+          />
+          </div>
+            {/* <h1 className="sm:block hidden">TechNL Job Listings</h1> */}
+            {/* <h1 className="block sm:hidden">TechNL</h1> */}
           </div>
         </Link>
-        <nav className="flex flex-row items-center space-x-4">
+        <nav className="flex flex-row items-center space-x-4 text-techNLDarkBlue dark:text-techNLBlue font-bold">
           <Link href="/listings">
-            <a>Listings</a>
+            <a className="px-4 py-2 hover:bg-techNLDarkBlue dark:hover:bg-techNLBlue hover:text-techNLBlack border-techNLDarkBlue dark:border-techNLBlue border-2 rounded-lg">Listings</a>
           </Link>
-          <Link href="/search">
+          {/* <Link href="/search">
             <a>Search</a>
-          </Link>
+          </Link> */}
           <Link href="/about">
-            <a>About</a>
+            <a className="px-4 py-2 hover:bg-techNLDarkBlue dark:hover:bg-techNLBlue hover:text-techNLBlack border-techNLDarkBlue dark:border-techNLBlue border-2 rounded-lg">About</a>
           </Link>
         </nav>
       </header>

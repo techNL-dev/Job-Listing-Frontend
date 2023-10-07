@@ -10,7 +10,8 @@ const ListingDetailCard: React.FC<Props> = ({ listing }) => {
   return (
     <div
       className="
-        bg-gray-800
+        bg-techNLLightGray
+        dark:bg-techNLGray
         p-4
         rounded-md
         shadow-md
@@ -18,10 +19,12 @@ const ListingDetailCard: React.FC<Props> = ({ listing }) => {
         flex
         flex-col
         justify-between
+        border-techNLBlue
+        border-2
       "
     >
       <div>
-        <h2 className="text-2xl font-medium">{listing.title}</h2>
+        <h2 className="text-2xl font-medium text-techNLDarkBlue dark:text-techNLBlue">{listing.title}</h2>
         <Link href={`/listings/${listing.company.toLowerCase()}`}>
           <a className="hover:underline">{listing.company}</a>
         </Link>
@@ -35,12 +38,12 @@ const ListingDetailCard: React.FC<Props> = ({ listing }) => {
         ></div>
       </div>
       <div className="flex flex-row justify-between items-center mt-2">
-        <div className="text-gray-500">
+        <div className="text-techNLBlack">
           Posted: {new Date(listing.posting_date).toLocaleDateString("en-US")}
         </div>
         {listing.apply_link && (
           <Link href={listing.apply_link}>
-            <a target="_blank" className="hover:underline">
+            <a target="_blank" className="text-techNLPinkPurple bg-techNLWhite dark:bg-techNLBlack px-2 py-1 rounded hover:bg-techNLPinkPurple hover:text-techNLBlack border-techNLPinkPurple border-2">
               Apply Now
             </a>
           </Link>

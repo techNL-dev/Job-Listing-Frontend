@@ -9,6 +9,22 @@ div#__next {
   height: 100%;
 }
 
+.indexPageButtons{
+  @apply text-3xl 
+  bg-transparent  
+  font-semibold  
+  py-2 
+  px-4 
+  border-2 
+  border-techNLDarkGray
+  dark:border-techNLWhite 
+  hover:border-transparent 
+  rounded
+  transition-all
+  ease-linear
+  duration-100
+}
+
 .ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
