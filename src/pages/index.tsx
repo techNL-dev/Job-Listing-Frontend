@@ -19,13 +19,25 @@ const IndexPage = () => {
         "
       >
         <div className="flex flex-col justify-center items-center p-4">
+          <div className="hidden dark:block">
           <Image
             src="/TechNLLogoHorizontal.png"
+            alt="TechNL"
+            className="hidden"
+            objectFit="contain"
+            height="275"
+            width="864"
+          />
+          </div>
+          <div className="dark:hidden">
+          <Image
+            src="/TechNLLogoBlackHorizontal.png"
             alt="TechNL"
             objectFit="contain"
             height="275"
             width="864"
           />
+          </div>
           <div className="mt-8 space-x-4 w-full flex flex-row sm:justify-start justify-center">
             <button
               className="indexPageButtons hover:bg-techNLDarkBlue dark:hover:bg-techNLBlue"

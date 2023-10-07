@@ -51,13 +51,25 @@ const Layout = ({
       >
         <Link href="/">
           <div className="text-2xl font-semibold cursor-pointer">
+          <div className="hidden dark:block">
           <Image
             src="/TechNLLogoHorizontal.png"
+            alt="TechNL"
+            className="hidden"
+            objectFit="contain"
+            height="48"
+            width="124"
+          />
+          </div>
+          <div className="dark:hidden">
+          <Image
+            src="/TechNLLogoBlackHorizontal.png"
             alt="TechNL"
             objectFit="contain"
             height="48"
             width="124"
           />
+          </div>
             {/* <h1 className="sm:block hidden">TechNL Job Listings</h1> */}
             {/* <h1 className="block sm:hidden">TechNL</h1> */}
           </div>
